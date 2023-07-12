@@ -59,8 +59,30 @@ ex_function2 = (x: number, y:number) : number => {
 // 위와같이 ex_function2 함수의 리턴값의 타입을 number가 아닌 string으로 지정하면 에러가 발생한다.
 
 // 아래와 같은 경우를 array에 사용할 수 있는 tuple이라고 한다.
-type Member = [number, boolean];
+type Ex_Member = [number, boolean];
 // Member 라는 타입은 number와 boolean 타입을 가진 배열이다.
-let ex_Member : Member = [1, true];
+let ex_Member : Ex_Member = [1, true];
 // let ex_Member2 : Member = ['23', 12];
 
+// 오브젝트의 키와 값의 타입을 지정할 수 있다.
+// 아래의 경우에는 키는 string 타입, 값은 string 타입이다.
+type Ex_Member2 = {
+    [key : string] : string,
+}
+let ex_Member2 : Ex_Member2 = { name : 'park', age : '24', address : '123'};
+// let ex_Member2 : Ex_Member2 = { name : 'park', age : '24', address : 123};
+// 위와같이 ex_Member2 오브젝트의 키와 값의 타입을 지정해주었기 때문에 address의 값이 숫자이면 에러가 발생한다.
+
+// class의 경우에도 타입을 지정해줄 수 있다.
+class Ex_Class {
+    name : string;
+    age : number;
+    constructor(name : string, age : number) {
+        this.name = name;
+        this.age = age;
+    }
+}
+// Ex_Class 라는 클래스는 name과 age라는 속성을 가지고 있으며 생성자를 통해 name과 age를 받아온다.
+let ex_Class = new Ex_Class('park', 24);
+// let ex_Class = new Ex_Class('park', '24');
+// 위와같이 ex_Class 클래스의 생성자에 지정한 타입이 아닌 값을 넣으면 에러가 발생한다.

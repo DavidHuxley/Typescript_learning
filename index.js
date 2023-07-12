@@ -36,4 +36,18 @@ ex_function2 = function (x, y) {
 };
 // Member 라는 타입은 number와 boolean 타입을 가진 배열이다.
 var ex_Member = [1, true];
-// let ex_Member2 : Member = ['23', 12];
+var ex_Member2 = { name: 'park', age: '24', address: '123' };
+// let ex_Member2 : Ex_Member2 = { name : 'park', age : '24', address : 123};
+// 위와같이 ex_Member2 오브젝트의 키와 값의 타입을 지정해주었기 때문에 address의 값이 숫자이면 에러가 발생한다.
+// class의 경우에도 타입을 지정해줄 수 있다.
+var Ex_Class = /** @class */ (function () {
+    function Ex_Class(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    return Ex_Class;
+}());
+// Ex_Class 라는 클래스는 name과 age라는 속성을 가지고 있으며 생성자를 통해 name과 age를 받아온다.
+var ex_Class = new Ex_Class('park', 24);
+// let ex_Class = new Ex_Class('park', '24');
+// 위와같이 ex_Class 클래스의 생성자에 지정한 타입이 아닌 값을 넣으면 에러가 발생한다.
